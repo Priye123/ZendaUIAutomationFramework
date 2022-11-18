@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="3" total="4" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-11-19T00:59:54 IST" name="10 DLC Automation test suite" finished-at="2022-11-19T01:00:52 IST" duration-ms="57825">
+    <groups>
+    </groups>
+    <test started-at="2022-11-19T00:59:54 IST" name="Test" finished-at="2022-11-19T01:00:52 IST" duration-ms="57825">
+      <class name="testcases.DBValidationTest">
+        <test-method is-config="true" signature="LaunchApplication()[pri:0, instance:testcases.DBValidationTest@1ca3b418]" started-at="2022-11-19T00:59:55 IST" name="LaunchApplication" finished-at="2022-11-19T00:59:59 IST" duration-ms="4017" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LaunchApplication -->
+        <test-method signature="TC3()[pri:0, instance:testcases.DBValidationTest@1ca3b418]" started-at="2022-11-19T00:59:59 IST" name="TC3" finished-at="2022-11-19T01:00:52 IST" duration-ms="53402" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC3 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testcases.DBValidationTest@1ca3b418]" started-at="2022-11-19T01:00:52 IST" name="tearDown" finished-at="2022-11-19T01:00:52 IST" duration-ms="149" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- testcases.DBValidationTest -->
+    </test> <!-- Test -->
+  </suite> <!-- 10 DLC Automation test suite -->
+</testng-results>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<extentreports>
+	<configuration>
+
+		<!-- document encoding -->
+		<!-- defaults to UTF-8 -->
+		<encoding>UTF-8</encoding>
+
+		<!-- protocol for script and stylesheets -->
+		<!-- defaults to https -->
+		<protocol>https</protocol>
+
+		<!-- Sinch logo -->
+		<reportName>
+			<![CDATA[
+                <img src='https://www.bing.com/th?id=OIP.ovipvzP0ZNfMFkmMQvuasgHaDb&w=350&h=162&c=8&rs=1&qlt=90&o=6&dpr=1.25&pid=3.1&rm=2'
+                style="display:flex;bottom:93.7%;left:78%;margin:auto;height:45px;width:45px;"/>
+            ]]>
+		</reportName>
+
+		<!-- custom javascript -->
+		<scripts>
+			<![CDATA[
+                $(document).ready(function() {
+                    
+                });
+            ]]>
+		</scripts>
+
+	</configuration>
+</extentreports>

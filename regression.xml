@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="10 DLC Automation test suite" parallel="tests" thread-count="3">
+	<listeners>
+		<listener class-name="reports.ListenersImplementation" />
+		<listener class-name="retryTestCases.TestRetryAnalyzerListener" />
+	</listeners>
+	<test name="Test">
+		<classes>
+			<class name="testcases.Regression.RegressionTestCases" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
