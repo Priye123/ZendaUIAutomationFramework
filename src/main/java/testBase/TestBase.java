@@ -1,10 +1,16 @@
 package testBase;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 
+import outgoing_mails.Mailing;
 import reusableComponents.ActionEngine;
 import reusableComponents.PropertiesOperations;
 
@@ -20,7 +26,7 @@ public class TestBase extends ActionEngine {
 	public void LaunchApplication() throws Exception {
 		String browser = PropertiesOperations.getPropertyValueByKey("browser");
 		String url = PropertiesOperations.getPropertyValueByKey("staging.url1");
-		//String url = PropertiesOperations.getPropertyValueByKey("production.url");
+		// String url = PropertiesOperations.getPropertyValueByKey("production.url");
 
 		DriverFactory.getInstance().setDriver(bf.createBrowserInstance(browser));
 
@@ -36,29 +42,29 @@ public class TestBase extends ActionEngine {
 		DriverFactory.getInstance().closeBrowser();
 	}
 
-//	@AfterSuite
-//	public void endSetup() throws AddressException, IOException, MessagingException {
-//
-//		Runtime r = Runtime.getRuntime();
-//		r.addShutdownHook(new Thread() {
-//
-//			public void run() {
-//				Mailing sm = new Mailing();
-//				try {
-//					sm.mail();
-//					System.out.println("Report has been sent");
-//				} catch (MessagingException e) {
-//					e.printStackTrace();
-//				} catch (IOException e) {
-//					e.printStackTrace();
-//				}
-//
-//			}
-//		});
-//		try {
-//			Thread.sleep(5000);
-//		} catch (Exception e) {
-//			System.out.println(e);
-//		}
-//	}
+	@AfterSuite
+	public void endSetup() throws AddressException, IOException, MessagingException {
+
+		Runtime r = Runtime.getRuntime();
+		r.addShutdownHook(new Thread() {
+
+			public void run() {
+				Mailing sm = new Mailing();
+				try {
+					sm.mail();
+					System.out.println("Report has been sent");
+				} catch (MessagingException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
+			}
+		});
+		try {
+			Thread.sleep(5000);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
 }
