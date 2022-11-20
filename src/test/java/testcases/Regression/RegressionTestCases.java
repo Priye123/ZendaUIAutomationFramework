@@ -2,7 +2,6 @@ package testcases.Regression;
 
 import java.util.HashMap;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import pages.ActivateCampaignPage2;
