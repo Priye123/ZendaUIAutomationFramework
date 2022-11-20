@@ -41,7 +41,7 @@
 						<!-- then use below maven command -->
 						<!-- mvn test -DtestngName="name of your testng.xml file" -->
 						<!-- <suiteXmlFile>regression.xml</suiteXmlFile>-->
-						<suiteXmlFile>path_suite/${regression}.xml</suiteXmlFile>
+						<suiteXmlFile>regression.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
