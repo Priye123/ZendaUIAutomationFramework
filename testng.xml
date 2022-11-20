@@ -9,7 +9,6 @@
 		<classes>
 			<!-- <class name="testCases.CampaignTest" /> -->
 			<!--<class name="testcases.DBValidationTest" />-->
-			<class name="testcases.Regression.RegressionTestCases" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
