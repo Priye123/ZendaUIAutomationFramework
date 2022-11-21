@@ -9,3 +9,11 @@ test:
   stage: test
   script:
     - mvn clean test
+
+# Store artifacts
+  artifacts:
+    when: always
+    name: "report"
+    paths:
+    - C:/Users/priran/eclipse-workspace/Advance_10DLC_Admin_Portal_Automation_Framework/Reports/*
+    expire_in: 1 h
