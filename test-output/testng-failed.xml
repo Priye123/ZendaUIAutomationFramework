@@ -7,14 +7,15 @@
   </listeners>
   <test thread-count="5" parallel="tests" name="Test(failed)">
     <classes>
-      <class name="testcases.DatabaseValidation.AmazonOPPOF11Pro">
+      <class name="testcases.Regression.RegressionTestCases">
         <methods>
-          <include name="endSetup"/>
           <include name="tearDown"/>
+          <include name="TC1"/>
           <include name="LaunchApplication"/>
           <include name="TC3"/>
+          <include name="TC2"/>
         </methods>
-      </class> <!-- testcases.DatabaseValidation.AmazonOPPOF11Pro -->
+      </class> <!-- testcases.Regression.RegressionTestCases -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [10 DLC Automation test suite] -->

@@ -33,10 +33,14 @@ public class BrowserFactory {
 		if (browser.equalsIgnoreCase("Chrome")) {
 
 			WebDriverManager.chromedriver().setup();
-			System.setProperty("webdriver.chrome.silentOutput", "true");
+			// System.setProperty("webdriver.chrome.silentOutput", "true");
 
 			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--incognito");
+			// options.addArguments("--incognito");
+			options.setBinary("/usr/bin/google-chrome"); // chrome binary location
+			options.addArguments("--headless");
+			options.addArguments("--no-sandbox");
+			options.addArguments("--disable-dev-shm-usage");
 
 			driver = new ChromeDriver(options);
 
@@ -68,7 +72,7 @@ public class BrowserFactory {
 		} else if (browser.equalsIgnoreCase("htmlunit")) {
 			// HtmlUnitDriver – Non GUI Browser in Selenium
 			driver = new HtmlUnitDriver(BrowserVersion.CHROME, true);
-			
+
 		} else if (browser.equalsIgnoreCase("ChromeHeadless")) {
 
 			WebDriverManager.chromedriver().setup();
