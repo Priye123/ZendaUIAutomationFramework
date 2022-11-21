@@ -15,5 +15,5 @@ test:
     when: always
     name: "report"
     paths:
-    - C:/Users/priran/eclipse-workspace/Advance_10DLC_Admin_Portal_Automation_Framework/Reports/*
+    - C:/Users/priran/eclipse-workspace/Advance_10DLC_Admin_Portal_Automation_Framework/Reports/ExecutionReport_14-11-2022 16-45-25.html
     expire_in: 1 h
