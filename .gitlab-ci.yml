@@ -12,8 +12,8 @@ test:
 
 # Store artifacts
   artifacts:
-    when: always
-    name: "report"
     paths:
-    - Reports/*
-    expire_in: 1 h
+       - target/surefire-reports/TEST-*.xml
+    reports:
+      junit:
+       - target/surefire-reports/TEST-*.xml
