@@ -2,12 +2,14 @@ package testcases.Smoke;
 
 import java.util.HashMap;
 
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import pages.ActivateCampaignPage2;
 import pages.CreateCampaignPage;
 import pages.LoginAndDashboardPage2;
 import reports.ExtentFactory;
+import reports.ListenersImplementation;
 import reusableComponents.FilloOperations;
 import reusableComponents.PropertiesOperations;
 import testBase.TestBase;
@@ -36,7 +38,7 @@ public class FilloCreateCampaignTest extends TestBase {
 	}
 
 	// this testcase is used to create campaign with Sinch Account
-	@Test(description = "It is used to create campaign flow with Sinch Account", priority = 2, enabled = false)
+	@Test(description = "It is used to create campaign flow with Sinch Account", priority = 2)
 	public void TC2() throws Exception {
 
 		HashMap<String, String> testData = fillo.getTestData("2", "CreateCampaignData");
@@ -105,7 +107,7 @@ public class FilloCreateCampaignTest extends TestBase {
 	}
 
 	// this testcase is used to create campaign with billing ON with Sinch Account
-	@Test(description = "It is used to create campaign with billing ON", priority = 5, enabled = false)
+	@Test(description = "It is used to create campaign with billing ON", priority = 5)
 	public void TC7() throws Exception {
 
 		HashMap<String, String> testData = fillo.getTestData("7", "CreateCampaignData");

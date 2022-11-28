@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testcases.Smoke.LoginDashboardTest">
+      <class name="testcases.Regression.RegressionTestCases">
         <methods>
           <include name="tearDown"/>
-          <include name="TC1"/>
           <include name="LaunchApplication"/>
+          <include name="TC3"/>
         </methods>
-      </class> <!-- testcases.Smoke.LoginDashboardTest -->
+      </class> <!-- testcases.Regression.RegressionTestCases -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

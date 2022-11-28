@@ -1,22 +1,26 @@
 package testcases.TestWithHardcodeData;
 
+import org.testng.annotations.Listeners;
+
 import org.testng.annotations.Test;
 
 import pages.ActivateCampaignPage2;
 import pages.CreateCampaignPage;
 import pages.LoginAndDashboardPage2;
+import reports.ListenersImplementation;
 import testBase.TestBase;
 
+@Listeners(ListenersImplementation.class)
 public class ActivateCampaignTest extends TestBase {
 	ActivateCampaignPage2 activateCampaignPage = new ActivateCampaignPage2();
 	LoginAndDashboardPage2 loginAndDashboardPage = new LoginAndDashboardPage2();
 	CreateCampaignPage createCampaignPage = new CreateCampaignPage();
 
 	// this testcase is used to check provision flow
-	@Test(description = "It is use to provision the number", enabled = false)
+	@Test(description = "It is use to provision the number")
 	public void TC2() {
 		loginAndDashboardPage.login("testing_10dlc", "fWVkHEOvTAij6K8APlJq");
-		activateCampaignPage.submitActivateCampaignRequest("CB9AAYH", "12436944798", "Mariusz_Staging");
+		activateCampaignPage.submitActivateCampaignRequest("CLZS40Z", "12436942522", "Sinch");
 
 	}
 
