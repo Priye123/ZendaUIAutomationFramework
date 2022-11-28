@@ -9,3 +9,11 @@ test:
   stage: test
   script:
     - mvn clean test
+
+# Store artifacts
+  artifacts:
+    paths:
+       - target/surefire-reports/TEST-*.xml
+    reports:
+      junit:
+       - target/surefire-reports/TEST-*.xml
