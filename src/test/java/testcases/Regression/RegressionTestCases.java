@@ -57,7 +57,7 @@ public class RegressionTestCases extends TestBase {
 	@Test(description = "campaign creation + number provision in same testcase", priority = 3)
 	public void TC3() throws Throwable {
 
-		HashMap<String, String> testData = fillo.getTestData("1", "CreateCampaignData");
+		HashMap<String, String> testData = fillo.getTestData("2", "CreateCampaignData");
 		ExtentFactory.getInstance().getExtent().info("Test Data for this execution run is: " + testData);
 
 		loginAndDashboardPage.login(PropertiesOperations.getPropertyValueByKey("staging.username"),
