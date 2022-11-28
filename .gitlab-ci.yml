@@ -17,3 +17,6 @@ test:
     paths:
     - Reports/*
     expire_in: 1 h
+    reports:
+      junit:
+       - target/surefire-reports/TEST-*.xml
