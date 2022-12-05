@@ -34,7 +34,7 @@ public class ReadFromExcelTest extends TestBase {
 	// Dataprovider method --> return object array
 	@DataProvider(name = "taskCreationData")
 	public Object[][] testDataSupplier() throws Exception {
-		Object[][] obj = new Object[excel.getRowCount()][1];
+		Object[][] obj = new Object[excel.getRowCount()][2];
 		for (int i = 1; i <= excel.getRowCount(); i++) {
 			HashMap<String, String> testData = excel.getTestDataInMap(i);
 			obj[i - 1][0] = testData;

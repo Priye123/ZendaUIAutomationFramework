@@ -20,7 +20,7 @@ public class ActivateCampaignTest extends TestBase {
 	@Test(description = "It is use to provision the number")
 	public void TC2() {
 		loginAndDashboardPage.login("testing_10dlc", "fWVkHEOvTAij6K8APlJq");
-		activateCampaignPage.submitActivateCampaignRequest("CLZS40Z", "12436942522", "Sinch");
+		activateCampaignPage.submitActivateCampaignRequest("CS7XM93", "12436960024", "Sinch");
 
 	}
 

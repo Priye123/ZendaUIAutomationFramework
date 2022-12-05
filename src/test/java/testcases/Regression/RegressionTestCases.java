@@ -14,7 +14,7 @@ import reusableComponents.FilloOperations;
 import reusableComponents.PropertiesOperations;
 import testBase.TestBase;
 
-//@Listeners(ListenersImplementation.class)
+@Listeners(ListenersImplementation.class)
 
 public class RegressionTestCases extends TestBase {
 

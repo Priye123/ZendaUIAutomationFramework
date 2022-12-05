@@ -38,6 +38,8 @@ public class CreateCampaignPage extends TestBase {
 	By disableTCR = By.xpath("//input[@name='enableTcrBilling' and @value=\"false\" ]");
 	// By msgFlow = By.xpath("//input[@placeholder='Enter Message Flow']");
 	By callToAction = By.xpath("//input[@placeholder='Enter Call to Action']");
+	By clickOnSubscriptionType=By.xpath("(//div[@aria-invalid=\"false\"])[2]");
+	By SelectSubscriptionTypeOneTime= By.xpath("//div[text()=\"One-Time\"]");
 	By helpMsg = By.xpath("//input[@placeholder='Enter Help Message']");
 	By optInKeywords = By.name("optinKeyword");
 	By optInMessage = By.name("optinMessage");
@@ -94,6 +96,9 @@ public class CreateCampaignPage extends TestBase {
 		click_custom(selectVerticalOption, "selectVerticalOption");
 		if (billing == false)
 			click_custom(disableTCR, "disableTCR");
+		
+		click_custom(clickOnSubscriptionType, "clickOnSubscriptionType");
+		click_custom(SelectSubscriptionTypeOneTime, "SelectSubscriptionTypeOneTime");
 		sendKeys_custom(callToAction, "helpMsg", "Confirming whether m able to do or not by automation");
 		sendKeys_custom(helpMsg, "helpMsg", "Automation is an art");
 		sendKeys_custom(optInKeywords, "optInKeywords", "Using optin keywords");
@@ -150,6 +155,8 @@ public class CreateCampaignPage extends TestBase {
 			click_custom(disableTCR, "disableTCR");
 		// sendKeys_custom(msgFlow, "msgFlow", "This is done through automation test
 		// scripts");
+		click_custom(clickOnSubscriptionType, "clickOnSubscriptionType");
+		click_custom(SelectSubscriptionTypeOneTime, "SelectSubscriptionTypeOneTime");
 		sendKeys_custom(callToAction, "helpMsg", "Confirming whether m able to do or not by automation");
 		sendKeys_custom(helpMsg, "helpMsg", "Automation is an art");
 		sendKeys_custom(optInKeywords, "optInKeywords", "Using optin keywords");
