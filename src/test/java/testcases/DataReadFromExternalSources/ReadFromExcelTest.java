@@ -2,44 +2,34 @@ package testcases.DataReadFromExternalSources;
 
 import java.util.HashMap;
 
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import pages.ActivateCampaignPage2;
-import pages.LoginAndDashboardPage;
+import pages.FeeConfigurationPage;
+import pages.LoginAndDashboardPage2;
+import pages.StaffProfileManagementPage;
 import reports.ExtentFactory;
-import reusableComponents.ExcelOperations;
+import reusableComponents.FilloOperations;
+import reusableComponents.PropertiesOperations;
 import testBase.TestBase;
 
 public class ReadFromExcelTest extends TestBase {
 
-	ActivateCampaignPage2 activateCampaignPage = new ActivateCampaignPage2();
-	LoginAndDashboardPage loginAndDashboardPage = new LoginAndDashboardPage();
-	ExcelOperations excel = new ExcelOperations("TaskCreationData");
+	LoginAndDashboardPage2 loginAndDashboardPage = new LoginAndDashboardPage2();
+	FilloOperations fillo = new FilloOperations();
+	StaffProfileManagementPage sp = new StaffProfileManagementPage();
+	FeeConfigurationPage fc = new FeeConfigurationPage();
 
-	@Test(dataProvider = "taskCreationData")
-	public void TC1(Object obj1) throws Throwable {
+	@Test(description = "It is used to check whether staff is added or not", priority = 1,enabled = false)
+	public void TC1() throws Throwable {
 
-		@SuppressWarnings("unchecked")
-		HashMap<String, String> testData = (HashMap<String, String>) obj1;
-
+		HashMap<String, String> testData = fillo.getTestData("1", "StaffData");
 		ExtentFactory.getInstance().getExtent().info("Test Data for this execution run is: " + testData);
 
-		loginAndDashboardPage.login(testData.get("UserName"), testData.get("Password"));
+		System.out.println(testData);
+		loginAndDashboardPage.login(PropertiesOperations.getPropertyValueByKey("staging.username"),
+				PropertiesOperations.getPropertyValueByKey("staging.password"));
 
-		activateCampaignPage.submitActivateCampaignRequest(testData.get("Campaign ID"), testData.get("Number"),
-				testData.get("Account ID"));
-	}
-
-	// Dataprovider method --> return object array
-	@DataProvider(name = "taskCreationData")
-	public Object[][] testDataSupplier() throws Exception {
-		Object[][] obj = new Object[excel.getRowCount()][2];
-		for (int i = 1; i <= excel.getRowCount(); i++) {
-			HashMap<String, String> testData = excel.getTestDataInMap(i);
-			obj[i - 1][0] = testData;
-		}
-		return obj;
+		sp.addStaff(testData);
 
 	}
 

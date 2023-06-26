@@ -14,10 +14,9 @@ public class FilloOperations {
 				+ PropertiesOperations.getPropertyValueByKey("testDataLocation");
 		Connection connection = fillo.getConnection(filePath);
 		String strQuery = null;
-		if (sheetName.equals("NumberProvisionData"))
-			strQuery = "Select * from NumberProvisionData where TC_ID='" + tcID + "'";
-		else
-			strQuery = "Select * from CreateCampaignData where TC_ID='" + tcID + "'";
+		if (sheetName.equalsIgnoreCase("StaffData"))
+			strQuery = "Select * from StaffData where TC_ID='" + tcID + "'";
+
 		Recordset recordset = connection.executeQuery(strQuery);
 		int columnCount = recordset.getFieldNames().size();
 

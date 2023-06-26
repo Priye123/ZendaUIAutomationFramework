@@ -19,15 +19,14 @@ public class TestBase extends ActionEngine {
 	@BeforeMethod
 	public void LaunchApplication() throws Exception {
 		String browser = PropertiesOperations.getPropertyValueByKey("browser");
-		String url = PropertiesOperations.getPropertyValueByKey("staging.url1");
-		// String url = PropertiesOperations.getPropertyValueByKey("production.url");
-
+		String url = PropertiesOperations.getPropertyValueByKey("url");
+	
 		DriverFactory.getInstance().setDriver(bf.createBrowserInstance(browser));
 
 		DriverFactory.getInstance().getDriver().manage().deleteAllCookies();
 		DriverFactory.getInstance().getDriver().manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 		DriverFactory.getInstance().getDriver().manage().window().maximize();
-		DriverFactory.getInstance().getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		DriverFactory.getInstance().getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		DriverFactory.getInstance().getDriver().navigate().to(url);
 	}
 

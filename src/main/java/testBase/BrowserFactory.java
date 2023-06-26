@@ -37,10 +37,12 @@ public class BrowserFactory {
 
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--incognito");
-			options.setBinary("/usr/bin/google-chrome"); // chrome binary location
-			options.addArguments("--headless");
-			options.addArguments("--no-sandbox");
-			options.addArguments("--disable-dev-shm-usage");
+//			options.setBinary("/usr/bin/google-chrome"); // chrome binary location
+//			options.addArguments("--headless");
+//			options.addArguments("--no-sandbox");
+//			options.addArguments("--disable-dev-shm-usage");
+			options.addArguments("--dns-prefetch-disable");
+			
 
 			driver = new ChromeDriver(options);
 

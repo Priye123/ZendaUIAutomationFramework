@@ -35,11 +35,10 @@ public class ExtentReportNG {
 		sparkReport.loadXMLConfig(System.getProperty("user.dir") + "//ReportConfig.xml");
 
 		extent.setSystemInfo("Executed on Environment: ", PropertiesOperations.getPropertyValueByKey("staging.url1"));
-		//extent.setSystemInfo("Executed on Environment: ", PropertiesOperations.getPropertyValueByKey("production.url"));
 		extent.setSystemInfo("Executed on Browser: ", PropertiesOperations.getPropertyValueByKey("browser"));
 		extent.setSystemInfo("Executed on OS: ", System.getProperty("os.name"));
 		extent.setSystemInfo("Executed by User: ", System.getProperty("user.name"));
-		extent.setSystemInfo("project", "10DLC");
+		extent.setSystemInfo("project", "zenda assignment");
 
 		return extent;
 	}

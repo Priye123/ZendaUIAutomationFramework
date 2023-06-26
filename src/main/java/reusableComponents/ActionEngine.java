@@ -10,9 +10,12 @@ import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.aventstack.extentreports.Status;
@@ -184,11 +187,44 @@ public class ActionEngine {
 		}
 
 	}
+	
+	public void explicitWait(By element,String fieldName) {
+		try {
+			getElement(element);
+			new WebDriverWait(DriverFactory.getInstance().getDriver(), 10).until(ExpectedConditions.elementToBeClickable(element)).click();
+//			highLight_Element(element);
+//			DriverFactory.getInstance().getDriver().findElement(element).click();
+			// log success message in extent report
+			ExtentFactory.getInstance().getExtent().log(Status.PASS, fieldName + "==> Clicked Successfully! ");
+		} catch (Exception e) {
+			// log failure in extent
+			ExtentFactory.getInstance().getExtent().log(Status.FAIL,
+					"Unable to click on field: " + fieldName + " due to exception: " + e);
+			getElement(element).click();
+		}
+	}
+
+	// Select dropdown value value by visibleText
+	public void selectDropDownByVisibleText_custom(By element, String fieldName, String ddVisibleText)
+			throws Throwable {
+		try {
+			Select s = new Select(getElement(element));
+			s.selectByVisibleText(ddVisibleText);
+			ExtentFactory.getInstance().getExtent().log(Status.PASS,
+					fieldName + "==> Dropdown Value Selected by visible text: " + ddVisibleText);
+		} catch (Exception e) {
+			ExtentFactory.getInstance().getExtent().log(Status.FAIL,
+					"Dropdown value not selected for field: " + fieldName + "  due to exception: " + e);
+		}
+	}
 
 	// Customized sendkeys method-> To log sendkeys message for every occ.
 	public void sendKeys_custom(By element, String fieldName, String valueToBeSent) {
 		try {
-			getElement(element).sendKeys(valueToBeSent);
+			if (valueToBeSent.equals("Keys.ENTER"))
+				getElement(element).sendKeys(Keys.ENTER);
+			else
+				getElement(element).sendKeys(valueToBeSent);
 //			highLight_Element(element);
 //			DriverFactory.getInstance().getDriver().findElement(element).sendKeys(valueToBeSent);
 			// log success message in extent report
@@ -241,20 +277,6 @@ public class ActionEngine {
 			ExtentFactory.getInstance().getExtent().log(Status.FAIL,
 					"Checking for presence of field: " + fieldName + " not tested due to exception: " + e);
 			return flag;
-		}
-	}
-
-	// Select dropdown value value by visibleText
-	public void selectDropDownByVisibleText_custom(WebElement element, String fieldName, String ddVisibleText)
-			throws Throwable {
-		try {
-			Select s = new Select(element);
-			s.selectByVisibleText(ddVisibleText);
-			ExtentFactory.getInstance().getExtent().log(Status.PASS,
-					fieldName + "==> Dropdown Value Selected by visible text: " + ddVisibleText);
-		} catch (Exception e) {
-			ExtentFactory.getInstance().getExtent().log(Status.FAIL,
-					"Dropdown value not selected for field: " + fieldName + "  due to exception: " + e);
 		}
 	}
 
@@ -312,8 +334,8 @@ public class ActionEngine {
 		}
 	}
 
-	// Random Campaign Name
-	public String getCampaignName() {
+	// Random aplhanumeric values
+	public String getRandomAlphaNumeric() {
 		int length = 5;
 		Random random = new SecureRandom();
 		char[] CHARSET_AZ_09 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
@@ -323,20 +345,6 @@ public class ActionEngine {
 			int randomCharIndex = random.nextInt(CHARSET_AZ_09.length);
 			result[i] = CHARSET_AZ_09[randomCharIndex];
 		}
-		return "Automation_Campaign_" + new String(result);
-	}
-
-	// Random Phone Number
-	public String getPhoneNumber() {
-		int length = 9;
-		Random random = new SecureRandom();
-		char[] CHARSET_09 = "0123456789".toCharArray();
-		char[] result = new char[length];
-		for (int i = 0; i < result.length; i++) {
-			// picks a random index out of character set > random character
-			int randomCharIndex = random.nextInt(CHARSET_09.length);
-			result[i] = CHARSET_09[randomCharIndex];
-		}
-		return "12" + new String(result);
+		return new String(result);
 	}
 }

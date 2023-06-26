@@ -72,7 +72,7 @@ public class ListenersImplementation implements ITestListener {
 //		try {
 //			automaticJIRAcreation = PropertiesOperations.getPropertyValueByKey("automatic_Issue_Creation_In_JIRA");
 //		} catch (Exception e) {
-//			// TODO Auto-generated catch block
+//			// 
 //			e.printStackTrace();
 //		}
 //		if (automaticJIRAcreation.trim().equalsIgnoreCase("ON")) {
